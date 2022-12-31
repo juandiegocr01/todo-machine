@@ -5,9 +5,7 @@ function TodoItem(props) {
 
 
 
-  const onDelete = () =>{
-    alert('Borrado ' + props.text);
-}
+ 
 
   return (
     <li className="TodoItem">
@@ -19,7 +17,7 @@ function TodoItem(props) {
         {props.text}
       </p>
       <span className="Icon Icon-delete"
-      onClick={onDelete}>
+      onClick={props.onDelete}>
         X
       </span>
     </li>

@@ -31,18 +31,24 @@ function App() {
       return todoText.includes(searchText);
     });
 
-    
-
-
-
   }
 
-  const completeTodos = (text) => {
+  const completeTodo = (text) => {
     const indexTodo = todos.findIndex(todo => todo.text === text);
     const newTodos = [...todos];
     newTodos[indexTodo].completed = true;
     setTodos(newTodos);
   };
+
+  const deleteTodo = (text) => {
+    const indexTodo = todos.findIndex(todo => todo.text === text);
+    const newTodos = [...todos];
+    newTodos.splice(indexTodo, 1);
+    setTodos(newTodos);
+    
+  };
+
+ 
 
   return (
     <React.Fragment>
@@ -61,8 +67,11 @@ function App() {
             key={todo.text}
             text={todo.text}
             completed={todo.completed}
-            onComplete={() => completeTodos(todo.text)}
+            onDelete={() => deleteTodo(todo.text)}
+            onComplete={() => completeTodo(todo.text)}
+            
           />
+          
         ))}
       </TodoList>
 
