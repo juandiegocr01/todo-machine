@@ -31,6 +31,11 @@ function useLocalStorage(itemName, initialValue){
     setItem(newItem);
   };
 
+  return [
+    item,
+    saveItem
+  ];
+
   
 
 }
